@@ -1,0 +1,101 @@
+/* 🎮 ESTILO GAMER 🎮 */
+
+/* 🔥 Botón de Crear Servidor */
+.neon-button {
+  background: linear-gradient(90deg, #ff0080, #8000ff);
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0px 0px 15px rgba(255, 0, 128, 0.7);
+}
+
+.neon-button:hover {
+  box-shadow: 0px 0px 25px rgba(255, 0, 128, 1);
+  transform: scale(1.05);
+}
+
+/* 🗡 Botón de Eliminar */
+.neon-delete {
+  background: linear-gradient(90deg, #ff3300, #cc0000);
+  border: none;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0px 0px 10px rgba(255, 51, 0, 0.7);
+}
+
+.neon-delete:hover {
+  box-shadow: 0px 0px 15px rgba(255, 51, 0, 1);
+  transform: scale(1.08);
+}
+
+/* ⚡ Modal Oscuro */
+.modal-dark {
+  background-color: #222;
+  color: white;
+}
+
+.btn-close-white {
+  filter: invert(1);
+}
+
+/* 🌑 Fondo oscuro para la tabla */
+.table-container {
+  background-color: #111;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* 🎨 Estilo para la tabla */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+  text-align: center;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.styled-table th {
+  background: linear-gradient(90deg, #8000ff, #ff0080);
+  padding: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.styled-table td {
+  padding: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Colores para los estados */
+.activo {
+  color: #00ff00;
+}
+
+.inactivo {
+  color: #ffcc00;
+}
+
+.mantenimiento {
+  color: #ff6600;
+}
+
+.acciones-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espacio entre botones */
+  align-items: center; /* Centrar botones en la celda */
+}
+

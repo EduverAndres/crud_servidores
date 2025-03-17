@@ -1,0 +1,73 @@
+<!-- Botón para abrir el formulario de nuevo servidor -->
+ <div>
+  <button class="btn-primary neon-button" (click)="openModal()">+ Crear Nuevo Servidor</button>
+
+ </div>
+
+<!-- Modal para crear/editar servidores -->
+<div #servidorModal class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content modal-dark">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          🚀 {{ servidorSeleccionado ? 'Editar Servidor' : 'Crear Nuevo Servidor' }}
+        </h5>
+        <button type="button" class="btn-close btn-close-white" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <app-servidor-form
+          [servidor]="servidorSeleccionado"
+          (servidorCreado)="actualizarTabla()"
+          (cerrar)="closeModal()"
+        ></app-servidor-form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Tabla de servidores -->
+<div class="table-container">
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Sistema Operativo</th>
+        <th>RAM (GB)</th>
+        <th>Disco (GB)</th>
+        <th>IP</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let servidor of servidores">
+        <td>{{ servidor.id }}</td>
+        <td>{{ servidor.nombre_servidor }}</td>
+        <td>{{ servidor.sistema_operativo }}</td>
+        <td>{{ servidor.memoria_ram }}</td>
+        <td>{{ servidor.capacidad_disco }}</td>
+        <td>{{ servidor.direccion_ip }}</td>
+        <td [ngClass]="getEstadoClass(servidor.estado)">{{ servidor.estado }}</td>
+        <td>
+          <div class="acciones-container">
+            <!-- Botón para cambiar estado -->
+            <button class="btn-warning neon-button" (click)="cambiarEstado(servidor.id, servidor.estado)">
+              🔄 Cambiar Estado
+            </button>
+
+            <!-- Botón editar -->
+            <button class="btn-info neon-button" (click)="openModal(servidor)">
+              ✏️ Editar
+            </button>
+
+            <!-- Botón eliminar -->
+            <button class="btn-delete neon-delete" (click)="eliminarServidor(servidor.id)">
+              🗡 Eliminar
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

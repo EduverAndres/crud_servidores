@@ -1,0 +1,40 @@
+<form [formGroup]="servidorForm" (ngSubmit)="onSubmit()" class="p-3 rounded shadow-sm">
+  <h5 class="text-center mb-3">Agregar Servidor</h5>
+
+  <div class="mb-2">
+    <label class="form-label">Nombre del Servidor</label>
+    <input type="text" class="form-control" formControlName="nombre_servidor" placeholder="Ej. Servidor Web" required />
+  </div>
+
+  <div class="mb-2">
+    <label class="form-label">Sistema Operativo</label>
+    <select class="form-select" formControlName="sistema_operativo">
+      <option *ngFor="let so of sistemasOperativos" [value]="so">{{ so }}</option>
+    </select>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-2">
+      <label class="form-label">Memoria RAM (GB)</label>
+      <input type="number" class="form-control" formControlName="memoria_ram" min="1" placeholder="Ej. 16" required />
+    </div>
+    <div class="col-md-6 mb-2">
+      <label class="form-label">Capacidad de Disco (GB)</label>
+      <input type="number" class="form-control" formControlName="capacidad_disco" min="1" placeholder="Ej. 500" required />
+    </div>
+  </div>
+
+  <div class="mb-2">
+    <label class="form-label">Dirección IP</label>
+    <input type="text" class="form-control" formControlName="direccion_ip" placeholder="Ej. 192.168.1.1" required />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Estado</label>
+    <select class="form-select" formControlName="estado">
+      <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary w-100">Guardar</button>
+</form>
